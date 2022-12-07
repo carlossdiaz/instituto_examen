@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlsn:th="http://www.thymeleaf.org">
+  <head th:replace="commons/header :: header"/>
+<body>
+    <div th:replace="commons/menu :: menu"/>
+    <form  th:action="@{/alumnos/save}" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="nombre" class="form-label" th:text="#{alumno.nombre}">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" autofocus>
+      </div>
+
+      <div class="mb-3">
+        <label for="descripcion" class="form-label" th:text="#{alumno.dni}">Descripcion</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion">
+      </div>
+
+      <div class="mb-3">
+        <label for="dni" class="form-label" th:text="#{alumno.dni}">DNI</label>
+        <input type="text" class="form-control" id="dni" name="dni">
+      </div>
+      <div class="mb-3">
+        <label for="fechanacimiento" class="form-label" th:text="#{alumno.fechanacimiento}">Fecha nacimiento</label>
+        <input type="text" class="form-control" id="fechanacimiento" name="fechanacimiento">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label" th:text="#{alumno.email}">Email</label>
+        <input type="text" class="form-control" id="email" name="email">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="nuevo" name="nuevo">
+        <label class="form-check-label" for="nuevo" th:text="#{alumno.nuevo}">¿Es nuevo?</label>
+      </div>
+
+      <div class="mb-3">
+        <label for="imagenForm" class="form-label">Imagen</label>
+        <input class="form-control" type="file" name="imagenForm" id="imagenForm">
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary" th:text="#{alumno.nuevo}">Crear</button>
+      </div>
+
+    </form>
+      
+      <div th:replace="commons/footer :: footer" class="container"/>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmlsn:th="http://www.thymeleaf.org">
+
+<head th:replace="commons/header :: header" />
+
+<body>
+  <div th:replace="commons/menu :: menu" />
+
+  <a th:href="@{/alumnos/new}" class="btn btn-primary" th:text="#{alumno.nuevo}">Nuevo Alumno</a>
+
+  <!-- cards -->
+  <div class="container">
+    <div class="row">
+      <div th:each="alumno : ${alumnos}" class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img th:src="'data:image/jpeg;base64,' + ${alumno.imageView}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 th:text="${alumno.nombre}" class="card-title"></h5>
+            <p th:text="${alumno.apellidos}" class="card-text"></p>
+            <p th:text="${alumno.dni}" class="card-text"></p>
+            <p th:text="${alumno.fechanacimiento}" class="card-text"></p>
+            <p th:text="${alumno.email}" class="card-text"></p>
+            <p th:text="${alumno.nuevo}" class="card-text"></p>
+            <p th:text="${alumno.precio}" class="card-text"></p>
+            <a href="alumno.html" th:href="@{/alumnos/edit/}+${alumno.codigo}" class="btn btn-primary">editar</a>
+            <a href="alumno.html" th:href="@{/alumnos/delete/}+${alumno.codigo}" class="btn btn-danger">borrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- nav -->
+    <div class="row">
+      <div th:replace="commons/pagination :: pagination">
+    </div>
+
+    <div th:replace="commons/footer :: footer" class="container" />
+
+</body>
+
+</html>
